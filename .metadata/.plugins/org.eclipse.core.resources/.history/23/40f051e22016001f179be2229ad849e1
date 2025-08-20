@@ -1,0 +1,49 @@
+
+public class h {
+	    
+	    // Method to remove zeros from a number and return the modified number
+	    public static int removeZeros(int number) {
+	        int result = 0;
+	        int multiplier = 1;
+	        
+	        while (number > 0) {
+	            int digit = number % 10;
+	            if (digit != 0) {
+	                result += digit * multiplier;
+	                multiplier *= 10;
+	            }
+	            number /= 10;
+	        }
+	        
+	        return result;
+	    }
+	    
+	    // Method to count the number of zeros in a given number
+	    public static int countZeros(int number) {
+	        int count = 0;
+	        
+	        while (number > 0) {
+	            if (number % 10 == 0) {
+	                count++;
+	            }
+	            number /= 10;
+	        }
+	        
+	        return count;
+	    }
+	    
+	    public static void main(String[] args) {
+	        int inputNumber = 10203040;
+	        
+	        // Remove zeros from the number
+	        int modifiedNumber = removeZeros(inputNumber);
+	        System.out.println("Number after removing zeros: " + modifiedNumber);
+	        
+	        // Count zeros in the number
+	        int zerosCount = countZeros(inputNumber);
+	        System.out.println("Number of zeros: " + zerosCount);
+	    }
+	}
+
+
+

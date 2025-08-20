@@ -1,0 +1,66 @@
+
+public class CircularQueue {
+	
+	static class Node{//constructor
+		int data;
+		Node next;
+	}
+	
+	static Node front,rear;//instance variable
+    
+	
+	static void EnQueue(int data) {
+		Node Temp=new Node();
+		Temp.data=data;
+		
+		if(front==null) {
+			front=Temp;
+			rear=Temp;
+			return;
+		}
+		Temp.next=front;//temp connnect to front 
+		rear.next=Temp;//and rear connect to temp
+		rear=Temp;//temp will last element then temp will denote as rear
+		return;
+		
+	}
+	
+	static void DeQueue() {
+		if(front==null) {
+			System.out.println("empty stack nothing to DeQueue");
+		 return;
+		}
+		if(front==rear) {
+			front=rear=null;
+			return;
+		}else {
+			Node temp=front;
+			front=front.next;
+			rear.next=front;
+		   temp.next=null;
+		   return;
+		}
+	}
+	
+	void print() {
+		Node Temp=front;
+		while(Temp.next!=front) {
+			System.out.println("Element are "+ Temp.data);
+			Temp=Temp.next;
+			System.out.println("Element are "+ Temp.data);
+		}
+	}
+	
+	public static void main(String[] args) {
+		CircularQueue Cq =new CircularQueue();
+		Cq.EnQueue(30);
+		Cq.EnQueue(45);
+		Cq.EnQueue(76);
+		Cq.EnQueue(87);
+		
+		
+		Cq.print();
+		
+		
+	}
+}

@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class m {
+
+	    
+	    // Function to check if a number is a magic number recursively
+	    public static boolean isMagicNumber(int num) {
+	        // Base case: if num is less than 10, it's already a single digit
+	        if (num < 10) {
+	            // A number is magic if the final single digit is 1
+	            return num == 1;
+	        }
+	        
+	        // Recursively calculate the sum of digits
+	        int sum = 0;
+	        while (num > 0) {
+	            sum += num % 10;
+	            num /= 10;
+	        }
+	        
+	        // Check if the sum is a magic number
+	        return isMagicNumber(sum);
+	    }
+
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.print("Enter a number: ");
+	        int number = scanner.nextInt();
+	        
+	        if (isMagicNumber(number)) {
+	            System.out.println(number + " is a magic number.");
+	        } else {
+	            System.out.println(number + " is not a magic number.");
+	        }
+	        
+	        scanner.close();
+	    }
+	}

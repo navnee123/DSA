@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class transposeMatrix {
+	public static int[][] transpose(int A[][]) {
+		
+		int r=A.length;
+		int c=A[0].length;
+		int B[][]=new int[r][c];
+		int i,j;
+		for(i=0;i<r;i++) {
+			for(j=0;j<c;j++) {
+				B[i][j]=A[j][i];
+			}
+		}
+		return B;
+	}
+	
+	public static void print(int [][] mat) {
+		int r=mat.length;
+		int c=mat[0].length;
+		for(int i=0;i<r;i++) {
+			for(int j=0;j<r;j++) {
+				System.out.print(mat[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the row");
+		int row=sc.nextInt();
+		System.out.println("enter the col");
+		int col=sc.nextInt();
+		int[][] A=new int[row][col];
+		
+		System.out.println("Enter the Element");
+		
+		for(int i=0;i<row;i++) {
+			for(int j=0;j<col;j++) {
+				A[i][j]=sc.nextInt();
+			}
+			
+		}
+		System.out.println("Before");
+		print(A);
+		int [][]result=transpose(A);
+		System.out.println("After");
+		print(result);
+		
+		
+		
+	}
+
+}

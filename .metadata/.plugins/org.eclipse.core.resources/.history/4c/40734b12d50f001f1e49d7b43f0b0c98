@@ -1,0 +1,28 @@
+package Memoziation;
+
+public class climbingByRecursion {
+	public climbingByRecursion() {
+		for(int i=0;i<this.arr.length;i++) {
+			arr[i]=-1;
+		}
+	}
+	 int [] arr=new int[100];
+	public int fac(int n) {
+		//int cb=0;
+		if(n==0 ||n==1) {
+			return 1;
+		}else if(arr[n]!=-1) {
+			return arr[n];
+		}else {
+			arr[n]=fac(n-1)+fac(n-2);
+			//arr[n]=cb;
+			return arr[n];
+		}
+		
+	}
+	
+  public static void main(String[] args) {
+	 System.out.println(new climbingByRecursion().fac(4));
+}
+
+}

@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class m {
+
+	
+	    
+	    // Function to calculate the sum of digits of a number
+	    public static int sumOfDigits(int num) {
+	        int sum = 0;
+	        while (num > 0) {
+	            sum += num % 10;
+	            num /= 10;
+	        }
+	        return sum;
+	    }
+
+	    // Function to check if a number is a magic number
+	    public static boolean isMagicNumber(int num) {
+	        int sum = num;
+	        
+	        // Continue summing the digits until a single digit is obtained
+	        while (sum >= 10) {
+	            sum = sumOfDigits(sum);
+	        }
+	        
+	        // A number is magic if the final single digit is 1
+	        return sum == 1;
+	    }
+
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        System.out.print("Enter a number: ");
+	        int number = scanner.nextInt();
+	        
+	        if (isMagicNumber(number)) {
+	            System.out.println(number + " is a magic number.");
+	        } else {
+	            System.out.println(number + " is not a magic number.");
+	        }
+	        
+	        scanner.close();
+	    }
+	}
+
+
+

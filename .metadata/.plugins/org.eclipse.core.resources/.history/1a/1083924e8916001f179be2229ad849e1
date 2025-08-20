@@ -1,0 +1,39 @@
+
+public class hateTheZeros {
+	public static int removeZeros(int num) {
+		int result=0;
+		int mul=1;
+		
+		while(num>0) {
+			int digit=num%10;
+			if(digit!=0) {
+				result+=digit *mul*10;
+				//mul*=10;
+			}
+			num/=10;
+		}
+		return result;
+	}
+	
+	public static int countZeros(int num) {
+		int count=0;
+		while(num>0) {
+			if(num%10==0) {
+				count++;
+			}
+			num/=10;
+		}
+		
+		return count;
+	}
+	
+	public static void main(String[] args) {
+		int num=10203040;
+		int result=removeZeros(num);
+		System.out.println(result);
+		int countResult=countZeros(num);
+		System.out.println(countResult);
+	}
+	
+
+}

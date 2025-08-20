@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class palindromNum {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the num");
+		int num=sc.nextInt();
+		if(checkNum(num)) {
+			System.out.println("yes");
+		}else {
+			System.out.println("no");
+		}
+	}
+	
+	public static boolean checkNum(int num) {
+		int number=num;
+		int rev=0;
+		while(num!=0) {
+			int digit=num%10;
+			 rev=rev*10+digit;
+			 num/=10;
+		}
+		return number==rev;
+	}
+
+}

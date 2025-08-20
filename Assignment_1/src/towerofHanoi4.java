@@ -1,0 +1,29 @@
+
+public class towerofHanoi4 {
+	
+	public static void main(String[] args) {
+		int n=4;
+		solve(n, 'A', 'B', 'C', 'D');
+	}
+	public static void solve(int n,char sour,char aux1,char aux2,char des) {
+		if(n==0) {
+			return;
+		}
+		if(n==1) {
+			System.out.println("Move disk 1 from " + sour + " to " + des);
+			return;
+		}
+		
+		solve(n-2,sour,des,aux2,aux1);
+		
+		System.out.println("Move disk " + (n - 1) + " from " + sour + " to " + aux2);
+		
+		System.out.println("Move disk " + n + " from " + sour + " to " + des);
+		
+		System.out.println("Move disk " + (n - 1) + " from " + aux2 + " to " + des);
+		
+		solve(n-2,aux1,sour,aux2,des);
+		
+	}
+
+}

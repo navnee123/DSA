@@ -1,0 +1,30 @@
+package Memoziation;
+
+public class FibByRecursion {
+	public FibByRecursion() {
+		for(int i=0;i<this.arr.length;i++) {
+			arr[i]=-1;
+		}
+	}
+	
+	int [] arr=new int[100];
+	
+	int fibByMemo(int n) {
+		int fib=0;
+		if(n==0 || n==1) {
+			return n;
+		}else if(arr[n]!=-1) {
+			return arr[n];
+		}else {
+			fib=fibByMemo(n-1)+fibByMemo(n-2);
+			arr[n]=fib;
+			return fib;
+		}
+	}
+	public static void main(String[] args) {
+		System.out.println(new FibByRecursion().fibByMemo(45));
+	}
+	
+	
+
+}

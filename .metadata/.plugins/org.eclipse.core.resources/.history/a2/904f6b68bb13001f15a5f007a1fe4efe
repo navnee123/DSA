@@ -1,0 +1,95 @@
+class SinglyLinkedListNode{
+	int data;
+	SinglyLinkedListNode next;
+	SinglyLinkedListNode(int data){
+		this.data=data;
+		this.next=null;
+	}
+}
+public class SingleLinkedlist {
+	static SinglyLinkedListNode head;
+	
+	//insert at head
+	public void InsertAtBeg(int data) {
+		
+		SinglyLinkedListNode newnode =new SinglyLinkedListNode(data);
+		newnode.next=head;
+		head=newnode;
+		
+		
+		SinglyLinkedListNode temp=head;
+		while(temp.next!=null) {
+			
+			temp=temp.next;
+			//System.out.println(temp.data+ ",");
+			
+		}
+		System.out.println(temp.data+ ",");
+		
+	}
+	
+	//insert at end
+	public void InsertAtEnd(int data) {
+		SinglyLinkedListNode newnode =new SinglyLinkedListNode(data);
+		if(head==null) {
+			System.out.println("list is empty");
+			head=newnode;
+			//newnode.next=null;
+			return;
+		}
+		SinglyLinkedListNode temp=head;
+		while(temp.next!=null) {
+			temp=temp.next;
+		}
+		temp.next=newnode;
+		newnode.next=null;
+		return;
+		
+	}
+	
+	//insert after position
+	
+	public void insertAfterPos(int data,int value) {
+		SinglyLinkedListNode newnode =new SinglyLinkedListNode(data);
+		if(head==null) {
+			System.out.println("list is empty");
+			head=newnode;
+			//newnode.next=null;
+		}
+		SinglyLinkedListNode temp=head;
+		while(temp.data!=value) {
+			temp=temp.next;
+		}
+		newnode.next=temp.next;
+		temp.next=newnode;
+		return;
+	}
+	
+	public void InsertAtBefore(int data,int value) {
+		SinglyLinkedListNode newnode =new SinglyLinkedListNode(data);
+		if(head==null) {
+			head=newnode;
+			newnode.next=null;
+		}
+		SinglyLinkedListNode temp=head;
+		SinglyLinkedListNode prev=head;
+		while(temp.next!=null && temp.data!=value) {
+			prev=temp;
+			temp=temp.next;
+		}
+		newnode.next=temp;
+		prev.next=newnode;
+		return;
+		}
+
+	
+	
+	public static void main(String[] args) {
+		SingleLinkedlist sll = new SingleLinkedlist();
+		head = new SinglyLinkedListNode(10);
+		 
+		sll.InsertAtBeg(50);
+		sll.InsertAtBeg(20);
+		//sll.insertAfterPos(30,50);
+	}
+}
